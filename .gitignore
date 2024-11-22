@@ -1,0 +1,68 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Distribution / packaging
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Environment variables
+.env
+.env.*
+
+# Logs and local data
+*.log
+*.sqlite3
+*.db
+*.pid
+*.swp
+
+# Rasa files
+.rasa/
+models/
+results/
+*.nlu.json
+*.nlu.md
+*.nlu.yml
+*.nlg.yml
+*.stories.yml
+*.rules.yml
+*.data.json
+
+# Training artifacts
+*.train_data.json
+*.train_data.md
+*.train_data.yml
+
+# System files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.bak
+*.orig
+
+# Virtual Environment
+venv/
+.env/
+*.env
+
+# Node dependencies (if using Node.js or npm)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Miscellaneous
+*.~*
+*.iml
+*.lock
+*.backup
+logs/

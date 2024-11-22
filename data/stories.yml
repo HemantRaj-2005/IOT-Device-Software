@@ -1,0 +1,65 @@
+version: "3.1"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+- story: control a specific drawer
+  steps:
+  - intent: control_drawer
+  - slot_was_set:
+    - drawer_number: "<drawer_number>"  # Example placeholder
+    - action: "<action>"               # Example placeholder
+  - action: action_control_drawer
+  - action: utter_drawer_action
+
+- story: check drawer status
+  steps:
+  - intent: check_drawer_status
+  - slot_was_set:
+    - drawer_number: "<drawer_number>"  # Example placeholder
+  - action: action_check_drawer_status
+  - action: utter_drawer_status
+
+- story: toggle multiple drawers
+  steps:
+  - intent: toggle_drawers
+  - slot_was_set:
+    - drawer_number: "<drawer_number>"  # Example placeholder for toggled drawers
+  - action: action_toggle_drawers
+  - action: utter_drawer_toggled
+
+- story: set a timer for a drawer
+  steps:
+  - intent: set_drawer_timer
+  - slot_was_set:
+    - drawer_number: "<drawer_number>"  # Example placeholder
+    - action: "<action>"               # Example placeholder
+    - duration: "<duration>"           # Example placeholder
+  - action: action_set_drawer_timer
+  - action: utter_timer_set

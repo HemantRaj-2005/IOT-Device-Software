@@ -1,0 +1,83 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - control_drawer
+  - check_drawer_status
+  - toggle_drawers
+  - set_drawer_timer
+  - bot_challenge
+  - mood_great
+  - mood_unhappy
+  - affirm
+  - deny
+
+entities:
+  - drawer_number
+  - action
+  - duration
+
+slots:
+  drawer_number:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: drawer_number
+
+  action:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: action
+
+  duration:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: duration
+
+responses:
+  utter_greet:
+    - text: "Hello! How can I assist with your drawers today?"
+
+  utter_goodbye:
+    - text: "Goodbye! Let me know if you need any help."
+
+  utter_drawer_action:
+    - text: "Performing {action} on drawer {drawer_number}."
+
+  utter_drawer_status:
+    - text: "Drawer {drawer_number} is currently {status}."
+
+  utter_drawer_toggled:
+    - text: "Toggled drawers: {drawer_number}."
+
+  utter_timer_set:
+    - text: "Timer set for drawer {drawer_number} to {action} in {duration} seconds."
+
+  utter_iamabot:
+    - text: "I am a bot, powered by Rasa."
+
+  utter_happy:
+    - text: "I'm glad to hear that!"
+
+  utter_cheer_up:
+    - text: "Here is something to cheer you up!"
+      image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+    - text: "Did that help you?"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+actions:
+  - action_control_drawer
+  - action_check_drawer_status
+  - action_toggle_drawers
+  - action_set_drawer_timer
